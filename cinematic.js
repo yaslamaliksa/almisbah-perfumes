@@ -1,0 +1,2 @@
+
+(()=>{'use strict';const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;if(reduced)return;const hero=document.querySelector('.photo-hero');if(!hero)return;const photo=hero.querySelector('.hero-photo');let pending=false;addEventListener('scroll',()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{const r=hero.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const offset=Math.max(-55,Math.min(55,-r.top*.09));photo.style.backgroundPosition=`center calc(55% + ${offset}px)`}pending=false})},{passive:true})})();
